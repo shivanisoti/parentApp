@@ -5,13 +5,13 @@ const ParentApp = () => {
 
   const callIframeFunction = () => {
     // Post a message to the iframe to trigger the function call
-    iframeRef.current.contentWindow.postMessage('callMyFunctionInIframe', 'https://iframe-auhk508wn-shivanis-projects-0c4ad5de.vercel.app');
+    iframeRef.current.contentWindow.postMessage('callMyFunctionInIframe', 'https://iframe-app-sand.vercel.app');
   };
 
   // Listen for messages from the iframe
   const handleMessage = (event) => {
     console.log('event', event);
-    if (event.origin == 'https://iframe-auhk508wn-shivanis-projects-0c4ad5de.vercel.app' && event.data == 'FunctionExecuted') {
+    if (event.origin == 'https://iframe-app-sand.vercel.app' && event.data == 'FunctionExecuted') {
       console.log('Function in iframe executed successfully');
     }
   };
@@ -24,7 +24,7 @@ const ParentApp = () => {
       <h1>Parent App</h1>
           <button onClick={callIframeFunction}>Call Iframe Function</button>
           <br/>
-      <iframe ref={iframeRef} src="https://iframe-auhk508wn-shivanis-projects-0c4ad5de.vercel.app" title="Your Iframe"></iframe>
+      <iframe ref={iframeRef} src="https://iframe-app-sand.vercel.app" title="Your Iframe"></iframe>
     </div>
   );
 };
